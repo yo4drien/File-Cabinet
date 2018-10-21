@@ -16,7 +16,7 @@ class DocsController < ApplicationController
     @doc = Doc.new(doc_params)
 
     if @doc.save
-      redirect_to doc_path(@doc)
+    redirect_to docs_path
     else
       render 'new'
     end
@@ -26,15 +26,22 @@ class DocsController < ApplicationController
   end
 
   def update
+    if @doc.update(doc_params)
+      redirect_to @doc
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    @doc.destroy
+    redirect_to docs_path
   end
 
   private
 
     def find_doc
-      @doc = Doc.find_by_id(params[:id])
+      @doc = Doc.find(params[:id])
     end
 
     def doc_params
