@@ -29,6 +29,13 @@ body {
   padding: 3.5rem 0;
 }
 
+.alert, .notice {
+  width:80%;
+  margin:0 auto;
+  margin-bottom: -.8rem;
+  padding: 1.8rem 0 0 0;
+}
+
 .clearfix:before, .clearfix:after {
   content: " ";
   display: table;
